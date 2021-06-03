@@ -17,5 +17,11 @@ changeBuildType(RelativeId("Build")) {
                 failBuild = false
             }
         }
+        add {
+            feature {
+                type = ""
+                param("free-space-work", "6gb")
+            }
+        }
     }
 }
