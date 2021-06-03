@@ -21,6 +21,8 @@ changeBuildType(RelativeId("Build")) {
     steps {
         update<MavenBuildStep>(0) {
             clearConditions()
+            goals = "clean test"
+            runnerArgs = ""
             mavenVersion = bundled_3_6()
         }
     }
