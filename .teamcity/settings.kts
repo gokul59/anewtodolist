@@ -26,9 +26,11 @@ object Build : BuildType({
     }
     steps {
         maven {
-            val myMavenGoal = "clean test"
-            goals = myMavenGoal
-            runnerArgs = "-Dmaven.test.failure.ignore=true
+            name = "Marco step"
+            goals = "clean test"
+            runnerArgs = "-Dmaven.test.failure.ignore=true"
+            mavenVersion = bundled_3_6()
+            jdkHome = "%env.JDK_16_0%"
         }
     }
 
