@@ -2,6 +2,8 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.freeDiskSpace
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.MavenBuildStep
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.ui.*
 
 /*
@@ -10,6 +12,20 @@ To apply the patch, change the buildType with id = 'Build'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("Build")) {
+    expectSteps {
+        maven {
+            goals = "clean package"
+            runnerArgs = "-Dmaven.test.failure.ignore=true"
+        }
+    }
+    steps {
+        update<MavenBuildStep>(0) {
+            clearConditions()
+            goals = "clean test"
+            mavenVersion = bundled_3_6()
+        }
+    }
+
     features {
         add {
             freeDiskSpace {
