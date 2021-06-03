@@ -1,7 +1,6 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.freeDiskSpace
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.MavenBuildStep
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.ui.*
@@ -24,15 +23,6 @@ changeBuildType(RelativeId("Build")) {
             goals = "clean test"
             runnerArgs = ""
             mavenVersion = bundled_3_6()
-        }
-    }
-
-    features {
-        add {
-            freeDiskSpace {
-                requiredSpace = "6gb"
-                failBuild = false
-            }
         }
     }
 }
