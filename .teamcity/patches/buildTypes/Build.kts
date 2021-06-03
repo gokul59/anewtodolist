@@ -23,6 +23,11 @@ changeBuildType(RelativeId("Build")) {
             clearConditions()
             mavenVersion = bundled_3_6()
         }
+        insert(1) {
+            maven {
+                goals = "clean package"
+            }
+        }
     }
 
     features {
