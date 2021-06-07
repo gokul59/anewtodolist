@@ -50,7 +50,7 @@ object Package : BuildType({
         }
     }
     dependencies {
-        {}
+
     }
     triggers {
         vcs {
