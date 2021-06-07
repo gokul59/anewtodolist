@@ -15,7 +15,7 @@ project {
 
     sequential {
         buildType(Build)
-        buildType(Build)
+        buildType(Package)
 
 
     }
@@ -50,7 +50,7 @@ object Package : BuildType({
         }
     }
     dependencies {
-       snapshot(Build) {}
+        {}
     }
     triggers {
         vcs {
