@@ -49,8 +49,7 @@ object Package : BuildType({
             runnerArgs = "-Dmaven.test.failure.ignore=true -DskipTest"
         }
     }
-    dependencies {
-
+    dependencies{
     }
     triggers {
         vcs {
