@@ -10,10 +10,14 @@ version = "2020.2"
 project {
 
     buildType(Build)
+    buildType(Package)
+
 
 
     sequential {
         buildType(Build)
+        buildType(Build)
+
 
     }
 }
@@ -46,9 +50,8 @@ object Package : BuildType({
             runnerArgs = "-Dmaven.test.failure.ignore=true -DskipTest"
         }
     }
-
     dependencies {
-        snapshot(Build) {}
+       snapshot(Build) {}
     }
     triggers {
         vcs {
