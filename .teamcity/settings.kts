@@ -4,7 +4,6 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.v2019_2.project as project
 
 
-
 version = "2020.2"
 
 project {
