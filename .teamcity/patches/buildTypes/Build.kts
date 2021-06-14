@@ -20,7 +20,6 @@ changeBuildType(RelativeId("Build")) {
     steps {
         update<MavenBuildStep>(0) {
             clearConditions()
-            goals = "clean test"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
         }
     }
